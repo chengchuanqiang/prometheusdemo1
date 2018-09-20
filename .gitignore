@@ -104,3 +104,6 @@ ${sys:LOG_PATH}/
 persist/src/test/
 service/src/test/
 web-api/output/
+
+.mvn/
+mvnw*
