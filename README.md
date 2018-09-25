@@ -21,11 +21,11 @@ server.port=8081
  
   basic_auth:
  
-    username: admin
+   username: admin
    
-    password: admin
+   password: admin
    
   static_configs:
  
-    - targets: ["localhost:9999"]
+   - targets: ["localhost:9999"]
    
