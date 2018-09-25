@@ -15,17 +15,11 @@ security.user.password=admin
 server.port=8081
 
 # prometheus 配置
-  - job_name: 'springboot3'
- 
-  metrics_path: '/prometheus'
- 
-  basic_auth:
- 
-   username: admin
-   
-   password: admin
-   
-  static_configs:
- 
-   - targets: ["localhost:9999"]
+- job_name: 'springboot3'
+ metrics_path: '/prometheus'
+ basic_auth:
+  username: admin
+  password: admin
+ static_configs:
+  - targets: ["localhost:9999"]
    
