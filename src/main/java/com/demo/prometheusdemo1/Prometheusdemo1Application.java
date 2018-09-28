@@ -3,6 +3,7 @@ package com.demo.prometheusdemo1;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import io.prometheus.client.hotspot.DefaultExports;
 import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
 import io.prometheus.client.spring.boot.EnableSpringBootMetricsCollector;
 import org.springframework.boot.SpringApplication;
@@ -11,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +39,14 @@ public class Prometheusdemo1Application extends WebMvcConfigurerAdapter {
         fastConvert.setSupportedMediaTypes(supportedMediaTypes);
 
         converters.add(fastConvert);
+    }
+
+    /**
+     * 开器JVM指标信息收集
+     */
+    @PostConstruct
+    public void init() {
+        DefaultExports.initialize();
     }
 
     public static void main(String[] args) {
